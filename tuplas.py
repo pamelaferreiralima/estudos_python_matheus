@@ -9,3 +9,8 @@ nest_tupla
 nest_tupla2 = ((1, 2, 3), (1, 2))
 nest_tupla2
 
+# podemos convertar qualquer sequência em uma tupla
+# com o método tuple()
+
+lista = [1, 23, 12, 24, 55]
+tuple(lista)

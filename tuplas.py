@@ -14,3 +14,4 @@ nest_tupla2
 
 lista = [1, 23, 12, 24, 55]
 tuple(lista)
+

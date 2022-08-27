@@ -166,3 +166,19 @@ for i, (a, b) in enumerate(zip(seq1, seq2)):
     2: Mamão, 2
 
     ```
+    
+lista_nomes = [ # lista zipada
+                ('Cantarutti', 'Matheus'), 
+                ('Cantarutti', 'Gustavo'), 
+                ('Quinteiro', 'Gabriella')
+                
+              ]
+
+# podemos "desparear" (com o unzip)
+
+last_name, first_name = zip(*lista_nomes)
+
+print(first_name)
+# >>> ('Matheus', 'Gustavo', 'Gabriella')
+print(last_name)
+# >>> ('Cantarutti', 'Cantarutti', 'Quinteiro')

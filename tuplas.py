@@ -15,3 +15,14 @@ nest_tupla2
 lista = [1, 23, 12, 24, 55]
 tuple(lista)
 
+
+tup = tuple('Matheus')
+tup
+# >>> ('M', 'a', 't', 'h', 'e', 'u', 's')
+
+# podemos acessar os valores por meio do []
+
+tup[1] # retorna 'a'
+tup[0] # retorna 'M'
+tup[-1] # retorna o último 's'
+tup[-3] # retorna o 'e'

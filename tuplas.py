@@ -26,3 +26,18 @@ tup[1] # retorna 'a'
 tup[0] # retorna 'M'
 tup[-1] # retorna o último 's'
 tup[-3] # retorna o 'e'
+
+# podemos modificar objetos mutáveis em tuplas porem 
+# as tuplas não permitem alterações depois que ela é criada
+
+tupla = (1, 2, [3, 4], 5, 6)
+tupla[0] = True
+
+# >>> ERROR: 'tuple' object does not support item assignment
+
+# porem podemos modificar a lista que está dentro da tupla
+
+tupla[2].append(5)
+tupla
+# >>> (1, 2, [3, 4, 5], 5, 6)
+

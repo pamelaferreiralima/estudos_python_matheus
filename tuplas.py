@@ -41,3 +41,10 @@ tupla[2].append(5)
 tupla
 # >>> (1, 2, [3, 4, 5], 5, 6)
 
+# Podemos concatenar as tuplas
+
+tupla1 = (4, None, 'comida')
+tupla2 = ('Churrasco', 'amigos', 'queijo')
+tupla3 = tupla1 + tupla2
+tupla3
+# >>> (4, None, 'comida', 'Churrasco', 'amigos', 'queijo')

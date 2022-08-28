@@ -1,5 +1,8 @@
 # Uma tupla é uma sequência imutável, de tamanho fixo, de objetos Python.
 
+from re import T
+
+
 tup = 3, 4, 5, 6
 ## nested tupla
 nest_tupla = (4, 5, 6, 7, 8)
@@ -48,3 +51,12 @@ tupla2 = ('Churrasco', 'amigos', 'queijo')
 tupla3 = tupla1 + tupla2
 tupla3
 # >>> (4, None, 'comida', 'Churrasco', 'amigos', 'queijo')
+
+# Podemos desempacotar tuplas
+
+t = ('a', 'b', 'c')
+
+a, b, c = t
+a # saída 'a'
+b # saída 'b'
+c # saída 'c'

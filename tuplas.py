@@ -60,3 +60,8 @@ a, b, c = t
 a # saída 'a'
 b # saída 'b'
 c # saída 'c'
+
+# MÉTODO COUNT: conta o nº de ocorrências de um valor
+# Obs: tbm disponível em listas
+
+t.count('c') #saída 1

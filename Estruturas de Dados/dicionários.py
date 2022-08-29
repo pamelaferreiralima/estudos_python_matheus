@@ -71,3 +71,18 @@ for word in words:
     by_letter.setdefault(letter, []).append(word)
 
 by_letter
+
+
+## CONJUNTOS
+
+a = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+b = {1, 3, 5, 6, 8}
+
+# UNIÃO
+
+a.union(b)
+# {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+a | b
+# {1, 2, 3, 4, 5, 6, 7, 8, 9}

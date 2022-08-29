@@ -27,3 +27,5 @@ d1['nomes'] # retorna ['Matheus', 'Gabriella', 'Lesliee', 'Bruno', 'Rafael', 'Pe
 'frutas' in d1
 # False
 
+d1[5] = 'algum valor' # adicionamos um valor ao dicionário
+d1

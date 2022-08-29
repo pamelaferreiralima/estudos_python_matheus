@@ -63,3 +63,11 @@ d1
 by_letter
 
 # {'f': ['fugir'], 'e': ['estudar', 'estudar'], 'a': ['atender', 'auditar', 'amar'], 'c': ['começar'], 'v': ['visitar']}
+
+# Podemos escrever o mesmo código com o método setdefault
+
+for word in words:
+    letter = word[0]
+    by_letter.setdefault(letter, []).append(word)
+
+by_letter

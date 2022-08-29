@@ -86,3 +86,11 @@ a.union(b)
 
 a | b
 # {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+# INTERSECÇÃO
+
+a.intersection(b)
+# {1, 3, 5, 6, 8}
+
+a & b
+# {1, 3, 5, 6, 8}

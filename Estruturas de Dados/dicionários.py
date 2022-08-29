@@ -94,3 +94,22 @@ a.intersection(b)
 
 a & b
 # {1, 3, 5, 6, 8}
+
+# funções de conjunto
+
+    #.add()
+    #.clear()
+    #.remove()
+    #.pop()
+    #.union()
+    #.update()
+    #.intersection()
+    #.intersection_update()
+    #.difference()
+    #.difference_update()
+    #.symetric_difference()
+    #.symetric_difference_update()
+    #.issubset()
+    #.issuperset()
+    #.isdisjoint()
+    

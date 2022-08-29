@@ -29,3 +29,9 @@ d1['nomes'] # retorna ['Matheus', 'Gabriella', 'Lesliee', 'Bruno', 'Rafael', 'Pe
 
 d1[5] = 'algum valor' # adicionamos um valor ao dicionário
 d1
+
+# Podemos apagar esse valor adicionado
+
+del d1[5]
+d1
+# dicionário original

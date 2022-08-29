@@ -17,3 +17,13 @@ d1['nomes'][2] # Retorna Lesliee
 d1['nomes'][0] # Retorna Matheus
 d1['nomes'][-1] # Retorna Karina
 d1['nomes'][-3] # Retorna Rafael
+d1['nomes'] # retorna ['Matheus', 'Gabriella', 'Lesliee', 'Bruno', 'Rafael', 'Pedro', 'Karina']
+
+# Podemos verificar se um dicionário contem uma chave
+
+'nomes' in d1
+# True
+
+'frutas' in d1
+# False
+

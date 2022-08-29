@@ -35,3 +35,13 @@ d1
 del d1[5]
 d1
 # dicionário original
+
+# MÉTODOS KEYS, VALUES
+
+    list(d1.keys())
+    # ['banana', 'arroz', 'nomes']
+
+    list(d1.values())
+    # [6,'5Kg', ['Matheus', 'Gabriella', 'Lesliee', 'Bruno', 'Rafael', 'Pedro', 'Karina']]
+ 
+ 

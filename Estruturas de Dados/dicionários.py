@@ -44,4 +44,22 @@ d1
     list(d1.values())
     # [6,'5Kg', ['Matheus', 'Gabriella', 'Lesliee', 'Bruno', 'Rafael', 'Pedro', 'Karina']]
  
+ # Podemos com valores a serem definidos, um caso comum é aquele
+ # em que os valores de um dicionário são outras coleções, como listas.
  
+ 
+ ## Por exemplo:
+ 
+ words = ['fugir', 'estudar', 'atender', 'estudar', 'auditar', 'começar', 'visitar', 'amar']
+ by_letter = {}
+ 
+ for word in words:
+     letter = word[0]
+     if letter not in by_letter:
+         by_letter[letter] = [word]
+     else:
+         by_letter[letter].append(word)
+         
+by_letter
+
+# {'f': ['fugir'], 'e': ['estudar', 'estudar'], 'a': ['atender', 'auditar', 'amar'], 'c': ['começar'], 'v': ['visitar']}

@@ -147,7 +147,7 @@ sorted("Estudo Big Data na FATEC")
 # "Pareia" os elementos de uma série de listas/tuplas/outras sequências
 # para criar uma lista de tuplas
 
-seq1 = ['Banana', 'Maça', 'Mamão'] #elementos
+seq1 = ['Banana', 'Maçã', 'Mamão'] #elementos
 seq2 = [6, 12, 2]  #quantidade
 
 lista_zipada = zip(seq1, seq2)
@@ -162,7 +162,7 @@ for i, (a, b) in enumerate(zip(seq1, seq2)):
     ``` # retorno
     
     0: Banana, 6
-    1: Maça, 12
+    1: Maçã, 12
     2: Mamão, 2
 
     ```

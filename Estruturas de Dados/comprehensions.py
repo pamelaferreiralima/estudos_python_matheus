@@ -11,3 +11,9 @@
 #    for val in collection:
 #        if condition:
 #            result.append(expr)
+
+# EXEMPLO 1:
+
+strings = ['node', 'Python', 'Java', 'JavaScript', 'c', 'c++']
+[x.upper() for x in strings if len(x) > 2] # converte o as palavras para maiúsculas se o tamanho for maior que 2
+# ['NODE', 'PYTHON', 'JAVA', 'JAVASCRIPT', 'C++']

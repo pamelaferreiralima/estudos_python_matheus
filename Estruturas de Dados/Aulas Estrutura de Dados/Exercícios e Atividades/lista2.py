@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 3,
    "id": "afadb104",
    "metadata": {},
    "outputs": [],
@@ -41,7 +41,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 4,
    "id": "7f71bdce",
    "metadata": {},
    "outputs": [],
@@ -68,12 +68,12 @@
     "        valores.append(op_palavra.pop())\n",
     "        #print(valores)\n",
     "        \n",
-    "    return \"\\n\".join(valores) # "
+    "    return palavra[::-1] "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 5,
    "id": "a4b84fb9",
    "metadata": {},
    "outputs": [
@@ -81,15 +81,12 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "a\n",
-      "m\n",
-      "o\n",
-      "r\n"
+      "ailátI an é amor\n"
      ]
     }
    ],
    "source": [
-    "print(palavra_invertida(\"r o m a\"))"
+    "print(palavra_invertida(\"roma é na Itália\"))"
    ]
   },
   {
@@ -125,7 +122,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 19,
    "id": "5263477a",
    "metadata": {},
    "outputs": [
@@ -134,12 +131,12 @@
      "output_type": "stream",
      "text": [
       "Desculpa, essa palavra não é palindroma\n",
-      "True\n"
+      "False\n"
      ]
     }
    ],
    "source": [
-    "print(palavra_palindroma(\"subinoonibus\"))"
+    "print(palavra_palindroma(\"gato\"))"
    ]
   },
   {

@@ -125,7 +125,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 32,
    "id": "5263477a",
    "metadata": {},
    "outputs": [
@@ -134,12 +134,12 @@
      "output_type": "stream",
      "text": [
       "Desculpa, essa palavra não é palindroma\n",
-      "False\n"
+      "True\n"
      ]
     }
    ],
    "source": [
-    "print(palavra_palindroma(\"gato\"))"
+    "print(palavra_palindroma(\"subinoonibus\"))"
    ]
   },
   {

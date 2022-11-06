@@ -447,24 +447,68 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 49,
    "metadata": {},
-   "outputs": [],
-   "source": []
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[8, 0, 2, 10, 12]"
+      ]
+     },
+     "execution_count": 49,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[x * 2 for x in ints]"
+   ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 50,
    "metadata": {},
-   "outputs": [],
-   "source": []
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]"
+      ]
+     },
+     "execution_count": 50,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[x ** 2 for x in range(11)]"
+   ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 53,
    "metadata": {},
-   "outputs": [],
-   "source": []
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['aaaa', 'foo', 'abab', 'bar', 'card']"
+      ]
+     },
+     "execution_count": 53,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Ordernar uma coleção de strings de acordo com o numero de letras distintas em cada string:\n",
+    "\n",
+    "strings = ['foo', 'card', 'bar', 'aaaa', 'abab']\n",
+    "\n",
+    "strings.sort(key=lambda x: len(set(list(x))))\n",
+    "strings"
+   ]
   },
   {
    "cell_type": "code",

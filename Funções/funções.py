@@ -9,28 +9,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "35.49"
-      ]
-     },
-     "execution_count": 5,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
-    "def my_function(x, y, z=1.5):\n",
+    "def my_function(x, y, z=1):\n",
     "    if z > 1:\n",
     "        return z * (x + y)\n",
     "    else:\n",
     "        return z / (x + y)\n",
     "    \n",
-    "my_function(3.14,7,3.5)"
+    "my_function(5, 2, 3)"
    ]
   },
   {
@@ -55,106 +44,73 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
-    "def func():\n",
-    "    a = []\n",
-    "    for i in range(5):\n",
-    "        a.append(i)\n",
-    "# após a função ser finalizada a lista a é destruída. (local)        "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 7,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "a = []\n",
-    "def func():\n",
-    "    for i in range(5):\n",
-    "        a.append(i)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 8,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "def bind_a_variable():\n",
-    "    global a\n",
-    "    a = []\n",
+    "# Currying: Derivar novas funções a partir de funções existentes por meio da aplicação parcial de\n",
+    "# argumentos\n",
     "\n",
-    "bind_a_variable()"
+    "def add_numbers(x, y):\n",
+    "    return x + y"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "[]\n"
-     ]
+     "data": {
+      "text/plain": [
+       "15"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
     }
    ],
    "source": [
-    "print(a)"
+    "# derivamos uma nova funçao que some 5 ao seu argumento\n",
+    "# definimos uma nova função que chama uma função existente\n",
+    "\n",
+    "add_five = lambda y: add_numbers(5, y)\n",
+    "add_five(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "55"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Podemos ainda usar a biblioteca functools\n",
+    "\n",
+    "from functools import partial\n",
+    "\n",
+    "add_five = partial(add_numbers, 5)\n",
+    "add_five(50)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Devolvendo diversos valores "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 12,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "def f():\n",
-    "    a = 5\n",
-    "    b = 6\n",
-    "    c = 7\n",
-    "    return {'a': a, 'b': b, 'c': c} # essa técnica pode vir a ser útil"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 14,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "{'a': 5, 'b': 6, 'c': 7}"
-      ]
-     },
-     "execution_count": 14,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "f() "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 15,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "states = ['Alabama', 'Geogia!', 'Georgia', 'geogira', 'FlORida', 'south carolina###', 'West virginia?']"
+    "### Geradores\n",
+    "- Os geradores devolvem uma sequência de vários resultados em modo lazy, fazendo uma pauda após cada um, até que o próximo resultado seja solicitado.\n",
+    "- usamos a palavra reservada _*yield*_ em vez de return em uma função"
    ]
   },
   {
@@ -163,352 +119,143 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "import re"
+    "def squares(n=10):\n",
+    "    print(\"Generating squares from 1 to {0}\" .format(n ** 2))\n",
+    "    for i in range (1, n+1):\n",
+    "        yield i ** 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<generator object squares at 0x0000018520CFDCF0>"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "gen = squares()\n",
+    "gen"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 20,
    "metadata": {},
-   "outputs": [],
-   "source": [
-    "def clean_string(strings):\n",
-    "    result = []\n",
-    "    \n",
-    "    for value in strings:\n",
-    "        value = value.strip()\n",
-    "        value = re.sub('[!#?]','', value)\n",
-    "        value = value.title()\n",
-    "        result.append(value)\n",
-    "    return result"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 21,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['Alabama',\n",
-       " 'Geogia',\n",
-       " 'Georgia',\n",
-       " 'Geogira',\n",
-       " 'Florida',\n",
-       " 'South Carolina',\n",
-       " 'West Virginia']"
-      ]
-     },
-     "execution_count": 21,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "clean_string(states)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 28,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "'Como é bom estudar MAC0110!'"
-      ]
-     },
-     "execution_count": 28,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "s = '\\n \\t \\v\\f Como é bom estudar MAC0110! \\n\\t\\n\\v'\n",
-    "s_limpa = s.strip()\n",
-    "s_limpa"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 29,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "'\\n \\t \\x0b\\x0c Como é bom estudar MAC0110! \\n\\t\\n\\x0b'"
-      ]
-     },
-     "execution_count": 29,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "s"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 30,
-   "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Welcome To My World\n"
+      "Generating squares from 1 to 100\n",
+      "1 4 9 16 25 36 49 64 81 100 "
      ]
     }
    ],
    "source": [
-    "txt = \"Welcome to my world\"\n",
-    "x = txt.title()\n",
-    "print(x)\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 31,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Podemos criar uma função para remover em um conjunto particular\n",
-    "\n",
-    "def remove_punctuation(value):\n",
-    "    return re.sub('[!#?]', '', value)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 32,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "clean_ops = [str.strip, remove_punctuation, str.title]"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 33,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "def clean_string(strings, ops):\n",
-    "    result = []\n",
-    "    for value in strings:\n",
-    "        for function in ops:\n",
-    "            value = function(value)\n",
-    "        result.append(value)\n",
-    "    return result"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 34,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['Alabama',\n",
-       " 'Geogia',\n",
-       " 'Georgia',\n",
-       " 'Geogira',\n",
-       " 'Florida',\n",
-       " 'South Carolina',\n",
-       " 'West Virginia']"
-      ]
-     },
-     "execution_count": 34,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "clean_string(states, clean_ops)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 35,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Alabama\n",
-      "Geogia\n",
-      "Georgia\n",
-      "geogira\n",
-      "FlORida\n",
-      "south carolina\n",
-      "West virginia\n"
-     ]
-    }
-   ],
-   "source": [
-    "for x in map(remove_punctuation, states):\n",
-    "    print(x)"
+    "for x in gen:\n",
+    "    print(x, end=' ')"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Funções Anônimas"
+    "#### Expressões Geradoras\n",
+    "- Análogos a listas, dicts e set comprehensions"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
+   "execution_count": 22,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "32"
+       "<generator object <genexpr> at 0x00000185204DA2E0>"
       ]
      },
-     "execution_count": 41,
+     "execution_count": 22,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "def short_function(x):\n",
-    "    return x * 2\n",
-    "short_function(16)"
+    "gen = (x ** 2 for x in range(100))\n",
+    "gen"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 42,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "32"
-      ]
-     },
-     "execution_count": 42,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "equiv_anon = lambda x: x * 2\n",
-    "equiv_anon(16)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 43,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [],
    "source": [
-    "def apply_to_list(some_list, f):\n",
-    "    return [f(x) for x in some_list]"
+    "def _make_gen():\n",
+    "    for x in range(100):\n",
+    "        yield x ** 2\n",
+    "gen = _make_gen()"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 48,
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "328350"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Expressões geradoras podem ser usadas no lugar de list comprehensions como argumentos\n",
+    "# de função em muitos casos:\n",
+    "\n",
+    "sum(x ** 2 for x in range(100))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
-   "source": [
-    "ints = [ 4, 0, 1, 5, 6]"
-   ]
+   "source": []
   },
   {
    "cell_type": "code",
-   "execution_count": 45,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "[8, 0, 2, 10, 12]"
-      ]
-     },
-     "execution_count": 45,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "apply_to_list(ints, lambda x:x*2)"
-   ]
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "code",
-   "execution_count": 49,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "[8, 0, 2, 10, 12]"
-      ]
-     },
-     "execution_count": 49,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "[x * 2 for x in ints]"
-   ]
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "code",
-   "execution_count": 50,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]"
-      ]
-     },
-     "execution_count": 50,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "[x ** 2 for x in range(11)]"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 53,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['aaaa', 'foo', 'abab', 'bar', 'card']"
-      ]
-     },
-     "execution_count": 53,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# Ordernar uma coleção de strings de acordo com o numero de letras distintas em cada string:\n",
-    "\n",
-    "strings = ['foo', 'card', 'bar', 'aaaa', 'abab']\n",
-    "\n",
-    "strings.sort(key=lambda x: len(set(list(x))))\n",
-    "strings"
-   ]
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "code",
